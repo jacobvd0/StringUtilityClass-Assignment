@@ -273,7 +273,42 @@ bool String::operator!=(const String& _other)
 
 bool String::operator<(const String& _other)
 {
-	return false;
+	if (strcmp(m_string, _other.CStr()) == 1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool String::operator<=(const String& _other)
+{
+	if (strcmp(m_string, _other.CStr()) == 1 || strcmp(m_string, _other.CStr()) == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool String::operator>(const String& _other)
+{
+	if (strcmp(m_string, _other.CStr()) == -1) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool String::operator>=(const String& _other)
+{
+	if (strcmp(m_string, _other.CStr()) == -1 || strcmp(m_string, _other.CStr()) == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 // Allows setting the string after being set previously

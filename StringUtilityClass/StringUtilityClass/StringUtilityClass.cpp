@@ -79,4 +79,29 @@ int main()
 
     // Testing [] operator
     std::cout << thingToFind[4] << "\n";
+
+    // Testing <, >, <=, >=
+    String a = "a";
+    String b = "b";
+
+    if (a > b) {
+        std::cout << "a is before b\n";
+    }
+    else {
+        std::cout << "b is before a (this shouldn't be printed)\n";
+    }
+
+    if (a < b) {
+        std::cout << "b is before a (this shouldn't be printed)\n";
+    }
+    else {
+        std::cout << "a is before b\n";
+    }
+
+    if (a <= a) {
+        std::cout << "works\n";
+    }
+    if (a >= a) {
+        std::cout << "works\n";
+    }
 }
