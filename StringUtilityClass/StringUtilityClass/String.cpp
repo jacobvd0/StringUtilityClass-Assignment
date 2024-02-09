@@ -246,18 +246,20 @@ size_t String::Find(size_t _startIndex, const String& _str)
 // Replaces a certain word/phrase in the string with another
 String& String::Replace(const String& _find, const String& _replace)
 {
+	// Setup the tempoarary variables required for this
 	String tmp = m_string;
 	char tmpArray[2001];
 	int locationToCheck = 0;
 	int replacingLoc = 0;
 
+	// Loop through and check for all instances of the string and add the word to replace to the temp array instead
 	while (true) {
 		int strLocation = tmp.Find(locationToCheck, _find);
 		if (strLocation != -1) {
 			locationToCheck = strLocation + _replace.Length();
 
 			for (int i = replacingLoc; i < strLocation; i++) {
-				tmpArray[replacingLoc] = m_string[i]; // this might be wrong
+				tmpArray[replacingLoc] = m_string[i];
 				replacingLoc++;
 			}
 			for (int i = 0; i < _replace.Length(); i++) {
