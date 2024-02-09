@@ -120,5 +120,6 @@ int main()
     std::cout << "Input a string: ";
     std::cout << "Your input is: " << a.ReadFromConsole().CStr() << "\n";
 
+    system("pause");
     return 0;
 }
