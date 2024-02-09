@@ -7,7 +7,7 @@ public:
 	String();
 	String(const char* _str);
 	String(const String& _other);
-//	~String();
+	~String();
 
 
 	size_t Length() const;
@@ -21,8 +21,8 @@ public:
 	String& ToUpper();
 	size_t Find(const String& _str);
 	size_t Find(size_t _startIndex, const String& _str);
-//	String& Replace(const String& _find, const String& _replace);
-//	String& ReadFromConsole();
+	String& Replace(const String& _find, const String& _replace);
+	String& ReadFromConsole();
 	void WriteToConsole(); // changed from String& since I'm not 100% sure what to return with this
 	bool operator==(const String& _other);
 	bool operator!=(const String& _other);

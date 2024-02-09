@@ -5,80 +5,83 @@ int main()
 {
     std::cout << "Hello World!\n";
     String testString = "Hello, World";
-    // tesing lengths and strings
+
+    // Testing lengths and strings
     std::cout << "String: " << testString.CStr() << "\nLength: " << testString.Length() << "\n";
 
     // testing comparing
     String sameString = "Hello, World";
     String differentString = "Not Hello, World";
-    std::cout << "This should be true: " << testString.EqualTo(sameString) << "\nThis should be false: " << testString.EqualTo(differentString) << "\n";
+    std::cout << "Testing Comparing: This should be 1 (true): " << testString.EqualTo(sameString) << "and this should be 0 (false): " << testString.EqualTo(differentString) << "\n";
 
     // Testing making a string using another
-    String s1 = "works!";
+    String s1 = "World";
     String s2 = s1;
-    std::cout << "This " << s2.CStr() << "\n";
+    std::cout << "Testing creating strings using another string: Hello, " << s2.CStr() << "\n";
 
     // Writing to console
     testString.WriteToConsole();
 
     // testing the == operator
     if (testString == sameString) {
-        std::cout << "This should be sent\n";
+        std::cout << "Testing the == operator: This should be sent\n";
     }
     else {
-        std::cout << "This shouldn't be sent\n";
+        std::cout << "Testing the == operator: This shouldn't be sent\n";
     }
     if (testString == differentString) {
-        std::cout << "This shouldn't be sent\n";
+        std::cout << "Testing the == operator: This shouldn't be sent\n";
     }
     else {
-        std::cout << "This should be sent\n";
+        std::cout << "Testing the == operator: This should be sent\n";
     }
 
     // Testing the != operator
     if (testString != sameString) {
-        std::cout << "This shouldn't be sent\n";
+        std::cout << "Testing the != operator: This shouldn't be sent\n";
     }
     else {
-        std::cout << "This should be sent\n";
+        std::cout << "Testing the != operator: This should be sent\n";
     }
     if (testString != differentString) {
-        std::cout << "This should be sent\n";
+        std::cout << "Testing the != operator: This should be sent\n";
     }
     else {
-        std::cout << "This shouldn't be sent\n";
+        std::cout << "Testing the != operator: This shouldn't be sent\n";
     }
 
     // Testing CharacterAt
     std::cout << "The 5th letter is " << testString.CharacterAt(4) << "\n";
 
     // Testing ToUpper
-    std::cout << testString.ToUpper().CStr() << "\n";
+    std::cout << testString.CStr() << " uppercase is " << testString.ToUpper().CStr() << "\n";
 
     // Testing ToLower
-    std::cout << testString.ToLower().CStr() << "\n";
+    std::cout << testString.CStr() << " lowercase is " << testString.ToLower().CStr() << "\n";
 
     // Testing append
-    std::cout << testString.Append(differentString).CStr() << "\n";
+    String appendTest1 = "Hello, ";
+    String appendTest2 = "World";
+    std::cout << "Testing Append: " << appendTest1.Append(appendTest2).CStr() << "\n";
 
     // Testing prepend
-    std::cout << testString.Prepend(differentString).CStr() << "\n";
+    std::cout << "Testing Prepend: " << appendTest2.Prepend(appendTest1).CStr() << "\n";
 
     // Testing Finding
-    std::cout << "This should respond 0: " << testString.Find(sameString) << "\n";
+    std::cout << "Testing Finding: This should respond 0: " << testString.Find(testString) << "\n";
     String thingToFind = "World";
-    std::cout << "This shouldn't respond 0: " << testString.Find(thingToFind) << "\n";
+    std::cout << "Testing Finding: This shouldn't respond 0: " << testString.Find(thingToFind) << "\n";
 
     // Testing finding w/ start index
     String findTest = "Hello, World Hello, World";
-    std::cout << "This shouldn't respond 0: " << findTest.Find(12, thingToFind) << "\n";
+    std::cout << "Testing Finding with start index: This shouldn't respond 0: " << findTest.Find(12, thingToFind) << "\n";
 
     // Testing = operator
-    thingToFind = findTest;
-    std::cout << "Changed: " << thingToFind.CStr() << "\n";
+    thingToFind = testString;
+    std::cout << "Testing the = operator: " << thingToFind.CStr() << "\n";
 
     // Testing [] operator
-    std::cout << thingToFind[4] << "\n";
+    std::cout << "Testing [4]: " << thingToFind[4] << "\n";
 
     // Testing <, >, <=, >=
     String a = "a";
@@ -99,9 +102,23 @@ int main()
     }
 
     if (a <= a) {
-        std::cout << "works\n";
+        std::cout << "Testing the <= operator: works\n";
     }
     if (a >= a) {
-        std::cout << "works\n";
+        std::cout << "Testing the <= operator: works\n";
     }
+
+
+    // Testing replacing
+    String replaceThis = "World";
+    String withThis = "Hello";
+    String replaceTest = "Hello, World";
+    std::cout << "Hello, World with world replaced: " << replaceTest.Replace(replaceThis, withThis).CStr() << "\n";
+
+
+    // Testing reading from console
+    std::cout << "Input a string: ";
+    std::cout << "Your input is: " << a.ReadFromConsole().CStr() << "\n";
+
+    return 0;
 }

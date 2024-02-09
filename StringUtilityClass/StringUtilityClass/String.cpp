@@ -40,12 +40,13 @@ String::String(const String& _other)
 	);
 }
 
-// FIX THIS
-//String::~String()
-//{
+// Destructor
+String::~String()
+{
 //	delete[] m_string;
-//}
+}
 
+// Returns the length of the string
 size_t String::Length() const
 {
 	return strlen(m_string); // Uses strlen to get the length of the current string (m_string)
@@ -76,8 +77,10 @@ const char& String::CharacterAt(size_t _index) const
 	}
 }
 
+// Checks if the string is equal to another
 bool String::EqualTo(const String& _other) const
 {
+	// Returns 0 if it's equal
 	if (strcmp(m_string, _other.CStr()) == 0) {
 		return true;
 	}
@@ -134,6 +137,7 @@ void String::WriteToConsole()
 	std::cout << m_string << "\n";
 }
 
+// Converts the string to lower-case
 String& String::ToLower()
 {
 	// Get the length of the string
@@ -145,7 +149,6 @@ String& String::ToLower()
 	// Loop through all the letters and check if they're lower case
 	for (int i = 0; i <= stringLength; i++) {
 		if (m_string[i] >= 65 && m_string[i] <= 90) {
-			std::cout << "Converting letter " << m_string[i] << " to lowercase\n";
 			tmp[i] = m_string[i] + 32; // If it's lower case take 32 which'll make it upper case
 		}
 		else {
@@ -209,6 +212,7 @@ size_t String::Find(const String& _str)
 	return -1; // This will only be called if it doesn't contain the string
 }
 
+// Find a certain word/phrase inside a string, responds with the location of the char in the array
 size_t String::Find(size_t _startIndex, const String& _str)
 {
 	// Sets up required variables
@@ -239,15 +243,55 @@ size_t String::Find(size_t _startIndex, const String& _str)
 	return -1; // This will only be called if it doesn't contain the string
 }
 
-//String& String::Replace(const String& _find, const String& _replace)
-//{
-//	// TODO: insert return statement here
-//}
-//
-//String& String::ReadFromConsole()
-//{
-//	// TODO: insert return statement here
-//}
+// Replaces a certain word/phrase in the string with another
+String& String::Replace(const String& _find, const String& _replace)
+{
+	String tmp = m_string;
+	char tmpArray[2001];
+	int locationToCheck = 0;
+	int replacingLoc = 0;
+
+	while (true) {
+		int strLocation = tmp.Find(locationToCheck, _find);
+		if (strLocation != -1) {
+			locationToCheck = strLocation + _replace.Length();
+
+			for (int i = replacingLoc; i < strLocation; i++) {
+				tmpArray[replacingLoc] = m_string[i]; // this might be wrong
+				replacingLoc++;
+			}
+			for (int i = 0; i < _replace.Length(); i++) {
+				tmpArray[replacingLoc] = _replace.CStr()[i];
+				replacingLoc++;
+			}
+
+		}
+		else {
+			break;
+		}
+	}
+	
+	tmpArray[replacingLoc] = '\0';
+
+	String convertedStr = tmpArray;
+	return convertedStr;
+	
+
+}
+
+// Prompts the user to type a string (limited to 2000 chars)
+String& String::ReadFromConsole()
+{
+	// Create a char array that can store 2000 characters and then request input from the user
+	char input[2001];
+	std::cin.getline(input, 2001);
+
+	//std::getline(std::cin, input)
+
+	// Convert it into a string then return it
+	String tmp = input;
+	return tmp;
+}
 
 // Checks if the strings are equal and returns the results
 bool String::operator==(const String& _other)
@@ -271,6 +315,7 @@ bool String::operator!=(const String& _other)
 	}
 }
 
+// Checks if the string is smaller than the compared string
 bool String::operator<(const String& _other)
 {
 	if (strcmp(m_string, _other.CStr()) == 1) {
@@ -281,6 +326,7 @@ bool String::operator<(const String& _other)
 	}
 }
 
+// Checks if the string is smaller or equal to the compared string
 bool String::operator<=(const String& _other)
 {
 	if (strcmp(m_string, _other.CStr()) == 1 || strcmp(m_string, _other.CStr()) == 0) {
@@ -291,6 +337,7 @@ bool String::operator<=(const String& _other)
 	}
 }
 
+// Checks if the string is bigger than the compared string
 bool String::operator>(const String& _other)
 {
 	if (strcmp(m_string, _other.CStr()) == -1) {
@@ -301,6 +348,7 @@ bool String::operator>(const String& _other)
 	}
 }
 
+// Checks if the string is bigger or equal to the compared string
 bool String::operator>=(const String& _other)
 {
 	if (strcmp(m_string, _other.CStr()) == -1 || strcmp(m_string, _other.CStr()) == 0) {
@@ -332,6 +380,7 @@ String& String::operator=(const String& _str)
 
 	return tmpString;
 }
+
 
 // Returns the character in the area of the array thats requested
 char& String::operator[](size_t _index)
