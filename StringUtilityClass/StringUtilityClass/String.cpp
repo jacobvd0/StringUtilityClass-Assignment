@@ -43,7 +43,7 @@ String::String(const String& _other)
 // Destructor
 String::~String()
 {
-//	delete[] m_string;
+	delete[] m_string;
 }
 
 // Returns the length of the string
@@ -90,7 +90,7 @@ bool String::EqualTo(const String& _other) const
 }
 
 // Appends the provided string to the end of the string
-String& String::Append(const String& _str)
+String String::Append(const String& _str)
 {
 	int totalSize = strlen(m_string) + strlen(_str.CStr()) + 1;
 
@@ -108,7 +108,7 @@ String& String::Append(const String& _str)
 }
 
 // Prepends the provided string to the end of the string
-String& String::Prepend(const String& _str)
+String String::Prepend(const String& _str)
 {
 	int totalSize = strlen(m_string) + strlen(_str.CStr()) + 1;
 
@@ -138,7 +138,7 @@ void String::WriteToConsole()
 }
 
 // Converts the string to lower-case
-String& String::ToLower()
+String String::ToLower()
 {
 	// Get the length of the string
 	int stringLength = strlen(m_string);
@@ -162,7 +162,7 @@ String& String::ToLower()
 }
 
 // Responds with an upper-case version of the string
-String& String::ToUpper()
+String String::ToUpper()
 {
 	// Get the length of the string
 	int stringLength = strlen(m_string);
@@ -244,7 +244,7 @@ size_t String::Find(size_t _startIndex, const String& _str)
 }
 
 // Replaces a certain word/phrase in the string with another
-String& String::Replace(const String& _find, const String& _replace)
+String String::Replace(const String& _find, const String& _replace)
 {
 	// Setup the tempoarary variables required for this
 	String tmp = m_string;
@@ -282,7 +282,7 @@ String& String::Replace(const String& _find, const String& _replace)
 }
 
 // Prompts the user to type a string (limited to 2000 chars)
-String& String::ReadFromConsole()
+String String::ReadFromConsole()
 {
 	// Create a char array that can store 2000 characters and then request input from the user
 	char input[2001];
