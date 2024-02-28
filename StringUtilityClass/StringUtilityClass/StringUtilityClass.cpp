@@ -300,7 +300,6 @@ int main()
     // Testing reading from console
     std::cout << "Input a string: ";
     std::cout << "Your input is: " << a.ReadFromConsole().CStr() << "\n";
-    
 
     logFile.close();
     system("pause");

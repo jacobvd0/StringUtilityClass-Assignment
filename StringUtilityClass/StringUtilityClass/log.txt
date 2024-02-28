@@ -230,3 +230,49 @@ Test 20 Replace Successful
 
 Test 20 Replace 2 Unsuccessful
 
+Date: 28/2/2024 Time: 15:24:34
+Test 0 Length Successful
+Test 1 EqualTo Successful
+Test 2 EqualOperator Successful
+Test 3 EqualOperator Successful
+Test 4 NotEqualOperator Successful
+Test 5 NotEqualOperator Successful
+Test 6 CharacterAt Successful
+Test 7 ToUpper Successful
+Test 8 ToLower Successful
+Test 9 Append Successful
+Test 10 Prepend Successful
+Test 11 Find Successful
+Test 12 Find Successful
+Test 13 Find (with start index) Successful
+Test 14 EqualOperator Successful
+Test 15 CheckIndex Successful
+Test 16 GreaterThan Successful
+Test 17 LessThan Successful
+Test 18 LessThanOrEqual Successful
+Test 19 GreaterThanOrEqual Successful
+Test 20 Replace Successful
+
+Date: 28/2/2024 Time: 15:25:15
+Test 0 Length Successful
+Test 1 EqualTo Successful
+Test 2 EqualOperator Successful
+Test 3 EqualOperator Successful
+Test 4 NotEqualOperator Successful
+Test 5 NotEqualOperator Successful
+Test 6 CharacterAt Successful
+Test 7 ToUpper Successful
+Test 8 ToLower Successful
+Test 9 Append Successful
+Test 10 Prepend Successful
+Test 11 Find Successful
+Test 12 Find Successful
+Test 13 Find (with start index) Successful
+Test 14 EqualOperator Successful
+Test 15 CheckIndex Successful
+Test 16 GreaterThan Successful
+Test 17 LessThan Successful
+Test 18 LessThanOrEqual Successful
+Test 19 GreaterThanOrEqual Successful
+Test 20 Replace Successful
+
