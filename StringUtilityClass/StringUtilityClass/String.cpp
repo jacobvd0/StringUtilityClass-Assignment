@@ -3,7 +3,8 @@
 
 String::String()
 {
-	m_string = new char[1];	
+	m_string = new char[1];
+	m_string[0] = '\0';
 }
 
 // Function to allow setting the string
