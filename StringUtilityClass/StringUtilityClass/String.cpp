@@ -266,13 +266,18 @@ String String::Replace(const String& _find, const String& _replace)
 				tmpArray[replacingLoc] = _replace.CStr()[i];
 				replacingLoc++;
 			}
-
 		}
 		else {
 			break;
 		}
 	}
 	
+	for (int i = replacingLoc; i < strlen(m_string); i++) {
+		tmpArray[replacingLoc] = m_string[replacingLoc];
+		replacingLoc++;
+
+	}
+
 	tmpArray[replacingLoc] = '\0';
 
 	String convertedStr = tmpArray;
