@@ -4,6 +4,9 @@
 
 int main()
 { 
+
+    
+
     // Creates/Opens log.txt and logs any successful/unsucessful results to it
     std::fstream logFile;
     logFile.open("log.txt", std::ios::out | std::ios::app);
@@ -279,6 +282,18 @@ int main()
     }
     else {
         logFile << "Test " << testNum << " GreaterThanOrEqual Unsuccessful\n";
+        testNum++;
+    }
+    String tester("Hello, World");
+    String rep("l");
+    String rep2("TEST");
+
+    if (tester.Replace(rep, rep2) == "HeTESTTESTo, WorTESTd") {
+        logFile << "Test " << testNum << " Replace2 Successful\n";
+        testNum++;
+    }
+    else {
+        logFile << "Test " << testNum << " Replace2 Unsuccessful\n";
         testNum++;
     }
 
